@@ -1,0 +1,5 @@
+username ALL = NOPASSWD: /bin/input-kbd [0-9]*
+username ALL = NOPASSWD: /usr/bin/input-kbd [0-9]*
+username ALL = NOPASSWD: /bin/input-kbd -f /tmp/[a-zA-Z0-9]* [0-9]*
+username ALL = NOPASSWD: /usr/bin/input-kbd -f /tmp/[a-zA-Z0-9]* [0-9]*
+
