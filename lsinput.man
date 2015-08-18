@@ -1,0 +1,19 @@
+.TH LSINPUT 8 "July 2005" "" ""
+
+.SH NAME
+lsinput \- list input devices
+
+.SH SYNOPSIS
+.B lsinput
+
+.SH DESCRIPTION
+.PP
+\fBlsinput\fR displays a list of all input devices of the kernel,
+along with some information about each device.
+
+.SH SEE ALSO
+.PP
+input\-events(8)
+
+.SH AUTHOR
+Gerd Knorr.

@@ -1,0 +1,34 @@
+.TH INPUT-EVENTS 8 "July 2005" "" ""
+.SH NAME
+
+input-events \- list input devices
+
+.SH SYNOPSIS
+\fBinput\-events \fR [\fB\-t\fR\ \fIsec\fR] [\fB\-g\fR]\ \fIdevnr\fR
+
+.SH DESCRIPTION
+.PP
+\fBinput\-events\fR listens for events on kernel input device
+\fIdevnr\fR and prints them.
+
+.SH OPTIONS
+.TP
+\fIdevnr\fR
+The index of the input device to use (0 for /dev/input/event0 and so on).
+
+.TP
+\fB\-g\fR
+Grab device using EVIOCGRAB, i\&.e\&.,
+get exclusive access to the device.
+
+.TP
+\fB\-t\fR\ \fIsec\fR
+Set the timeout.
+The program will quit after \fIsec\fR seconds without activity.
+
+.SH SEE ALSO
+.PP
+lsinput(8)
+
+.SH AUTHOR
+Gerd Knorr.

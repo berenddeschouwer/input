@@ -1,0 +1,54 @@
+.TH INPUT-KBD 8 "July 2005" "" ""
+
+.SH NAME
+input-kbd \- print or modify keyboard maps for input devices
+
+.SH SYNOPSIS
+\fBinput\-kbd\fR \fInum\fR
+.HP 10
+\fBinput\-kbd \fR [\fB\-f\fR\ \fIfile\fR] \fIdevnr\fR
+
+.SH DESCRIPTION
+
+.PP
+\fBinput\-kbd\fR prints the keyboard map of kernel input device
+\fIdevnr\fR on stdout.
+The keyboard map maps scancodes to keycodes.
+
+.PP
+If the device supports a keyboard map, 
+it is printed in the following format
+(from the output for an AT keyboard): 
+.IP
+        0x0001 =  67  # KEY_F9
+        0x0002 =  65  # KEY_F7
+        0x0003 =  63  # KEY_F5
+        0x0004 =  61  # KEY_F3
+ 
+
+.PP
+If the device does not support a keyboard map, 
+\fBinput\-kbd\fR just lists the keys and buttons supported by the device,
+like this (for a mouse):
+.IP
+        bits: BTN_LEFT
+        bits: BTN_RIGHT
+        bits: BTN_MIDDLE
+ 
+
+.SH OPTIONS
+
+.TP
+\fIdevnr\fR
+The index of the input device to use (0 for /dev/input/event0 and so on).
+
+.TP
+\fB\-f\fR \fIfile\fR
+Read a keyboard map from a file and reconfigure the device with this map.
+The map file uses the same format as the output of this command.
+Key names are also accepted instead of keycodes, like this: 
+.IP
+	0x0001 = KEY_F9
+ 
+.SH AUTHOR
+Gerd Knorr.

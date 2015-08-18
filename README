@@ -1,0 +1,82 @@
+
+This is a small collection of input layer utilities.  I wrote them
+mainly for testing and debugging, but maybe others find them useful
+too :-)
+
+
+lsinput
+=======
+
+probe and list all devices
+
+
+input-event
+===========
+
+listen for events and print them.  Expects a device number as argument
+(0 == /dev/input/event0, ...).
+
+  -t <sec>   set timeout, quits after <sec> seconds without input.
+             default is 10
+  -g         grab device using EVIOCGRAB, i.e. get exclusive access to
+             the device
+
+
+input-kbd
+=========
+
+read/write keyboard maps (scancode => linux keycode).  Also expects a
+device number as argument.
+
+If the input device supports maps, it will print them to stdout.
+Looks like this (AT Keyboard):
+
+	0x0001 =  67  # KEY_F9
+	0x0002 =  65  # KEY_F7
+	0x0003 =  63  # KEY_F5
+	0x0004 =  61  # KEY_F3
+	[ ... ]
+
+If the device doesn't support maps the utility just prints the keys
+and/or buttons supported by the device (my mouse):
+
+	bits: BTN_LEFT
+	bits: BTN_RIGHT
+	bits: BTN_MIDDLE
+
+If you pass a map file via -f switch the utility will parse it and
+reconfigure the device.  Syntax is identical to the maps printed out,
+i.e. you can dump the current map to some file, edit it and then apply
+the changes.  The key names are also accepted, i.e. both this ...
+
+	0x0001 = 67
+
+... and this ...
+
+	0x0001 = KEY_F9
+
+... works.
+
+
+input-send
+==========
+
+small daemon which reads from a input device and sends it over the
+network to everyone who connects.  Listens on tcp port 1234.
+
+
+input-recv
+==========
+
+the receiving end for the send utility.  Connects to localhost:1234
+right now and prints stuff to stderr.  Plan is to put events into
+/dev/input/uinput some day which basically gives you a remote input
+device.
+
+
+Have fun,
+
+  Gerd
+
+-- 
+Gerd Knorr <kraxel@bytesex.org> [SUSE Labs]

@@ -1,0 +1,7 @@
+	[ SW_LID           ] = "SW_LID",
+	[ SW_TABLET_MODE   ] = "SW_TABLET_MODE",
+	[ SW_HEADPHONE_INSERT ] = "SW_HEADPHONE_INSERT",
+	[ SW_RFKILL_ALL    ] = "SW_RFKILL_ALL",
+	[ SW_RADIO         ] = "SW_RADIO",
+	[ SW_MICROPHONE_INSERT ] = "SW_MICROPHONE_INSERT",
+	[ SW_DOCK          ] = "SW_DOCK",
